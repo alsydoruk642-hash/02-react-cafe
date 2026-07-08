@@ -19,14 +19,14 @@ export default function VoteOptions(props: VoteOptionsProps) {
       <button className={css.button} onClick={() => props.onVote("bad")}>
         Bad
       </button>
-      <button
-        className={`${css.button} ${css.reset}`}
-        onClick={() => {
-          props.onReset();
-        }}
-      >
-        Reset
-      </button>
+      {props.canReset && (
+        <button
+          className={`${css.button} ${css.reset}`}
+          onClick={props.onReset}
+        >
+          Reset
+        </button>
+      )}
     </div>
   );
 }
